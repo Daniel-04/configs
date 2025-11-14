@@ -1,0 +1,2 @@
+:def hoogle \x -> return $ ":!hoogle " ++ x
+:def hinfo \x -> return $ ":!hoogle --info " ++ x
