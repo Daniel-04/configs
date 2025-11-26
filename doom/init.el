@@ -63,7 +63,7 @@
        (ocaml +lsp)             ; an objective camel
        (org +gnuplot +dragndrop +pretty)               ; organize your plain life in plain text
        graphviz          ; diagrams for confusing yourself even more
-       (python +lsp +pyright +cython)            ; beautiful is better than ugly
+       (python +lsp +pyright +cython +pyenv)            ; beautiful is better than ugly
        (rust +lsp +tree-sitter)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        (scheme +guile)   ; a fully conniving family of lisps
        (sh +lsp +tree-sitter)                ; she sells {ba,z,fi}sh shells on the C xor
