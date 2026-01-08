@@ -15,6 +15,36 @@
   '(font-lock-comment-face :inherit default :background "yellow")
   '(font-lock-constant-face :foreground nil :weight bold :inherit default))
 
+(defun diablo-hellfire ()
+  (let* ((banner '("▓█████▄  ██▓ ▄▄▄       ▄▄▄▄    ██▓     ▒█████  "
+                   "▒██▀ ██▌▓██▒▒████▄    ▓█████▄ ▓██▒    ▒██▒  ██▒"
+                   "░██   █▌▒██▒▒██  ▀█▄  ▒██▒ ▄██▒██░    ▒██░  ██▒"
+                   "░▓█▄   ▌░██░░██▄▄▄▄██ ▒██░█▀  ▒██░    ▒██   ██░"
+                   "░▒████▓ ░██░ ▓█   ▓██▒░▓█  ▀█▓░██████▒░ ████▓▒░"
+                   " ▒▒▓  ▒ ░▓   ▒▒   ▓▒█░░▒▓███▀▒░ ▒░▓  ░░ ▒░▒░▒░ "
+                   " ░ ▒  ▒  ▒ ░  ▒   ▒▒ ░▒░▒   ░ ░ ░ ▒  ░  ░ ▒ ▒░ "
+                   " ░ ░  ░  ▒ ░  ░   ▒    ░    ░   ░ ░   ░ ░ ░ ▒  "
+                   "   ░     ░        ░  ░ ░          ░  ░    ░ ░  "
+                   " ░                 E M A C S░                  "
+                   " ▄  █ ▄███▄   █    █    ▄████  ▄█ █▄▄▄▄ ▄███▄  "
+                   "█   █ █▀   ▀  █    █    █▀   ▀ ██ █  ▄▀ █▀   ▀ "
+                   "██▀▀█ ██▄▄    █    █    █▀▀    ██ █▀▀▌  ██▄▄   "
+                   "█   █ █▄   ▄▀ ███▄ ███▄ █      ▐█ █  █  █▄   ▄▀"
+                   "   █  ▀███▀       ▀    ▀ █      ▐   █   ▀███▀  "
+                   "  ▀                       ▀        ▀           "
+                   ))
+         (longest-line (apply #'max (mapcar #'length banner))))
+    (put-text-property
+     (point)
+     (dolist (line banner (point))
+       (insert (+doom-dashboard--center
+                +doom-dashboard--width
+                (concat line (make-string (max 0 (- longest-line (length line))) 32)))
+               "\n"))
+     'face 'doom-dashboard-banner)))
+
+(setq +doom-dashboard-ascii-banner-fn #'diablo-hellfire)
+
 (load! "cuneiform.el")
 
 (use-package! typst-mode)
