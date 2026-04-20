@@ -19,6 +19,9 @@ unset rc
 
 . "$HOME/.cargo/env"
 
+export HISTSIZE=
+export HISTFILESIZE=
+shopt -s histappend
 export PATH=$PATH:~/.config/emacs/bin:.
 alias e="emacsclient -nw"
 export EDITOR="emacsclient -nw"
@@ -155,6 +158,14 @@ alias ghc='ghc -i.'
 alias ghci='ghci -i.'
 alias runghc='runghc -i.'
 alias hinfo='hoogle --info'
+
+export GUIX_LOCPATH="$HOME/.guix-profile/lib/locale"
+
+if [ -n "$GUIX_ENVIRONMENT" ]; then
+    if [[ $PS1 =~ (.*)"\\$" ]]; then
+        PS1="${BASH_REMATCH[1]} [env]\\\$ "
+    fi
+fi
 
 shopt -s autocd
 
